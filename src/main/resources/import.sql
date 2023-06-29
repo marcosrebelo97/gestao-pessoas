@@ -1,0 +1,13 @@
+INSERT INTO tb_pessoa (nome, data_nascimento) VALUES ('Cicero','01/06/1996')
+INSERT INTO tb_pessoa (nome, data_nascimento) VALUES ('Higor','01/06/1996')
+INSERT INTO tb_pessoa (nome, data_nascimento) VALUES ('Maria','09/02/1964')
+INSERT INTO tb_pessoa (nome, data_nascimento) VALUES ('João','12/12/2000')
+INSERT INTO tb_pessoa (nome, data_nascimento) VALUES ('Bernardo','01/05/1993')
+INSERT INTO tb_pessoa (nome, data_nascimento) VALUES ('André','29/10/1995')
+
+INSERT INTO tb_endereco(logradouro, cep, numero, cidade, pessoa_id) VALUES ('Rua X', '69077769', '20', 'Manaus', '1')
+INSERT INTO tb_endereco(logradouro, cep, numero, cidade, pessoa_id) VALUES ('Rua Central', '69075698', '50', 'Parintins', '2')
+INSERT INTO tb_endereco(logradouro, cep, numero, cidade, pessoa_id) VALUES ('Avenida J', '69088456', '200', 'Manaquiri', '3')
+INSERT INTO tb_endereco(logradouro, cep, numero, cidade, pessoa_id) VALUES ('Rua Djalma Batista', '21894823', '13', 'São Paulo', '2')
+INSERT INTO tb_endereco(logradouro, cep, numero, cidade, pessoa_id) VALUES ('Avenida Constantino', '12884312', '22', 'RJ', '4')
+INSERT INTO tb_endereco(logradouro, cep, numero, cidade, pessoa_id) VALUES ('Rua B', '94181212', '50', 'Volta Redonda', '5')
