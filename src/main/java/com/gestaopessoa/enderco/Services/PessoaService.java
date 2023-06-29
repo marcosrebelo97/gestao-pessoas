@@ -17,25 +17,40 @@ public class PessoaService {
     private PessoaRepository pessoaRepository;
 
     @Transactional(readOnly = true)
-    public List<PessoaDTO> buscarPessoas(){
-        return pessoaRepository.findAll().stream().map(pessoa->new PessoaDTO(pessoa)).toList();
+    public List<PessoaDTO> buscarPessoas() {
+        return pessoaRepository.findAll().stream().map(pessoa -> new PessoaDTO(pessoa)).toList();
     }
 
     @Transactional(readOnly = true)
-    public PessoaDTO buscarPessoaId(Long id){
+    public PessoaDTO buscarPessoaId(Long id) {
         Pessoa pessoa = pessoaRepository.findById(id).get();
         PessoaDTO pessoaDTO = new PessoaDTO(pessoa);
         return pessoaDTO;
     }
 
-    public PessoaEnderecoDTO pessoaEnderecoDTO(Long id){
+    public PessoaEnderecoDTO pessoaEnderecoDTO(Long id) {
         Pessoa pessoa = pessoaRepository.findById(id).get();
         PessoaEnderecoDTO pessoaEnderecoDTO = new PessoaEnderecoDTO(pessoa);
         return pessoaEnderecoDTO;
     }
+
     @Transactional
-    public Pessoa cadastrarPessoa(PessoaDTO pessoaDTO){
+    public Pessoa cadastrarPessoa(PessoaDTO pessoaDTO) {
         Pessoa pessoa = new Pessoa(pessoaDTO);
         return pessoaRepository.save(pessoa);
     }
+
+    @Transactional
+    public Pessoa editarPessoa(PessoaDTO pessoaDTO, Long id){
+        Pessoa pessoa = pessoaRepository.findById(id).orElse(null);
+        pessoa.setNome(pessoaDTO.getNome());
+        pessoa.setDataNascimento(pessoa.getDataNascimento());
+        pessoaRepository.save(pessoa);
+        return pessoa;
+    }
+
+    /*@Transactional
+    public void deletarPessoa(Long id) {
+        pessoaRepository.deleteById(id);
+    }*/
 }

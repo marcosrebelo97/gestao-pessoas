@@ -14,11 +14,8 @@ public class EnderecoService {
     @Autowired
     private EnderecoRepository enderecoRepository;
 
-    @Autowired
-    private PessoaRepository pessoaRepository;
-
     @Transactional
-    public Endereco cadastrarEndereco(EnderecoDTO enderecoDTO){
+    public Endereco cadastrarEndereco(EnderecoDTO enderecoDTO) {
         Endereco endereco = new Endereco(enderecoDTO);
         return enderecoRepository.save(endereco);
     }

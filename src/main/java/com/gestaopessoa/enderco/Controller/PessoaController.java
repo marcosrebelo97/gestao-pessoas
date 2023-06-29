@@ -29,7 +29,7 @@ public class PessoaController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<PessoaDTO> buscarPessoasId(@PathVariable Long id){
+    public ResponseEntity<PessoaDTO> buscarPessoasId(@PathVariable Long id) {
         PessoaDTO pessoaDTO = pessoaService.buscarPessoaId(id);
         return ResponseEntity.ok().body(pessoaDTO);
     }
@@ -40,9 +40,13 @@ public class PessoaController {
         return ResponseEntity.ok().body(pessoaEnderecoDTO);
     }
     @PostMapping(value = "/cadastrarPessoa")
-    public ResponseEntity<Pessoa> cadastrarPessoa(@RequestBody @Validated PessoaDTO pessoaDTO){
-        /*Pessoa pessoa = pessoaService.cadastrarPessoa(pessoaDTO);
-        return ResponseEntity.ok().body(pessoa);*/
+    public ResponseEntity<Pessoa> cadastrarPessoa(@RequestBody @Validated PessoaDTO pessoaDTO) {
         return new ResponseEntity<Pessoa>(pessoaService.cadastrarPessoa(pessoaDTO), HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/editarPessoa/{id}")
+    public ResponseEntity<Pessoa> editarPessoa (@PathVariable Long id, @RequestBody @Validated PessoaDTO pessoaDTO){
+        return new ResponseEntity<Pessoa>(pessoaService.editarPessoa(pessoaDTO, id), HttpStatus.OK);
+    }
+
 }
