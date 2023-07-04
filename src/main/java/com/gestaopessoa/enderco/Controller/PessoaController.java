@@ -1,9 +1,12 @@
 package com.gestaopessoa.enderco.Controller;
 
+import com.gestaopessoa.enderco.DTO.EnderecoDTO;
+import com.gestaopessoa.enderco.DTO.EnderecoPrincipalDTO;
 import com.gestaopessoa.enderco.DTO.PessoaDTO;
 import com.gestaopessoa.enderco.DTO.PessoaEnderecoDTO;
+import com.gestaopessoa.enderco.Entities.Endereco;
 import com.gestaopessoa.enderco.Entities.Pessoa;
-import com.gestaopessoa.enderco.Repository.PessoaRepository;
+import com.gestaopessoa.enderco.Services.EnderecoService;
 import com.gestaopessoa.enderco.Services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +21,11 @@ import java.util.List;
 public class PessoaController {
 
     @Autowired
-    private PessoaRepository pessoaRepository;
-    @Autowired
     private PessoaService pessoaService;
+
+    @Autowired
+    private EnderecoService enderecoService;
+
 
     @GetMapping
     public ResponseEntity<List<PessoaDTO>> listarPessoas() {
@@ -49,4 +54,20 @@ public class PessoaController {
         return new ResponseEntity<Pessoa>(pessoaService.editarPessoa(pessoaDTO, id), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}/endereco")
+    public ResponseEntity<EnderecoPrincipalDTO> consultarEnderecoPrincipal(@PathVariable Long id){
+        EnderecoPrincipalDTO enderecoPrincipalDTO = pessoaService.consultarEnderecoPrincipal(id);
+        return ResponseEntity.ok().body(enderecoPrincipalDTO);
+    }
+
+    @PostMapping(value = "/{id}/cadastrarEndereco")
+    public ResponseEntity<EnderecoDTO> cadastrarEndereco(@PathVariable Pessoa id, @RequestBody EnderecoDTO enderecoDTO){
+        try {
+            enderecoDTO.setPessoa(id);
+            EnderecoDTO enderecoCadastrado = pessoaService.cadastrarEndereco(enderecoDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(enderecoCadastrado);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

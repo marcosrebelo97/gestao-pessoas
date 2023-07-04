@@ -21,10 +21,10 @@ public class EnderecoController {
     @Autowired
     private EnderecoService enderecoService;
 
-    @PostMapping(value = "/cadastrarEndereco")
+    /*@PostMapping(value = "/cadastrarEndereco")
     public ResponseEntity<Endereco> cadastrarEndereco(@RequestBody @Validated EnderecoDTO enderecoDTO){
         return new ResponseEntity<Endereco>(enderecoService.cadastrarEndereco(enderecoDTO), HttpStatus.CREATED);
-    }
+    }*/
 
 
 }

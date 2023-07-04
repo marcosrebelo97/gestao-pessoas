@@ -1,20 +1,28 @@
 package com.gestaopessoa.enderco.Services;
 
+import com.gestaopessoa.enderco.DTO.EnderecoDTO;
+import com.gestaopessoa.enderco.DTO.EnderecoPrincipalDTO;
 import com.gestaopessoa.enderco.DTO.PessoaDTO;
 import com.gestaopessoa.enderco.DTO.PessoaEnderecoDTO;
 import com.gestaopessoa.enderco.Entities.Pessoa;
+import com.gestaopessoa.enderco.Entities.Endereco;
+import com.gestaopessoa.enderco.Repository.EnderecoRepository;
 import com.gestaopessoa.enderco.Repository.PessoaRepository;
+import com.gestaopessoa.enderco.projections.PessoaEnderecoPrincipalProjections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
     @Transactional(readOnly = true)
     public List<PessoaDTO> buscarPessoas() {
@@ -49,8 +57,29 @@ public class PessoaService {
         return pessoa;
     }
 
-    /*@Transactional
-    public void deletarPessoa(Long id) {
-        pessoaRepository.deleteById(id);
-    }*/
-}
+    public EnderecoPrincipalDTO consultarEnderecoPrincipal(Long id){
+        PessoaEnderecoPrincipalProjections consultar = pessoaRepository.retornarConsulta(id);
+        return new EnderecoPrincipalDTO(consultar);
+    }
+
+    @Transactional
+    public EnderecoDTO cadastrarEndereco(EnderecoDTO enderecoDTO){
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(enderecoDTO.getPessoa().getId());
+        if(pessoaOptional.isPresent()){
+            Pessoa pessoa = pessoaOptional.get();
+            Endereco novoEndereco = new Endereco();
+            novoEndereco.setCep(enderecoDTO.getCep());
+            novoEndereco.setCidade(enderecoDTO.getCidade());
+            novoEndereco.setLogradouro(enderecoDTO.getLogradouro());
+            novoEndereco.setNumero(enderecoDTO.getNumero());
+
+            enderecoRepository.save(novoEndereco);
+            return enderecoDTO;
+        }else{
+            throw new IllegalArgumentException("Não encontrada");
+        }
+
+    }
+
+
+ }

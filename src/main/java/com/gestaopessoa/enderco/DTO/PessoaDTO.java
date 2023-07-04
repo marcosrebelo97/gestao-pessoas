@@ -14,7 +14,6 @@ public class PessoaDTO {
 
     private String nome;
     private String dataNascimento;
-
     public PessoaDTO(Pessoa pessoa){
         nome = pessoa.getNome();
         dataNascimento = pessoa.getDataNascimento();
