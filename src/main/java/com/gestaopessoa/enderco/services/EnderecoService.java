@@ -8,12 +8,4 @@ import org.springframework.stereotype.Service;
 @Service
 public class EnderecoService {
 
-    @Autowired
-    private EnderecoRepository enderecoRepository;
-    @Autowired
-    private PessoaRepository pessoaRepository;
-
-
-
-
 }

@@ -6,6 +6,7 @@ import com.gestaopessoa.enderco.dto.PessoaDTO;
 import com.gestaopessoa.enderco.dto.PessoaEnderecoDTO;
 import com.gestaopessoa.enderco.entities.Pessoa;
 import com.gestaopessoa.enderco.entities.Endereco;
+import com.gestaopessoa.enderco.exceptionhandler.ProductNotFoundException;
 import com.gestaopessoa.enderco.repository.EnderecoRepository;
 import com.gestaopessoa.enderco.repository.PessoaRepository;
 import com.gestaopessoa.enderco.projections.PessoaEnderecoPrincipalProjections;
@@ -29,10 +30,10 @@ public class PessoaService {
     }
 
     @Transactional(readOnly = true)
-    public PessoaDTO buscarPessoaId(Long id) {
-        Pessoa pessoa = pessoaRepository.findById(id).get();
-        PessoaDTO pessoaDTO = new PessoaDTO(pessoa);
-        return pessoaDTO;
+    public Pessoa buscarPessoaId(Long id) {
+        Optional<Pessoa> pessoa = pessoaRepository.findById(id);
+        //PessoaDTO pessoaDTO = new PessoaDTO(pessoa);
+        return pessoa.orElseThrow(() -> new ProductNotFoundException());
     }
 
     public PessoaEnderecoDTO pessoaEnderecoDTO(Long id) {
@@ -75,7 +76,7 @@ public class PessoaService {
             enderecoRepository.save(novoEndereco);
             return enderecoDTO;
         }else{
-            throw new IllegalArgumentException("Não encontrada");
+            throw new IllegalArgumentException("Pessoa não encontrada");
         }
 
     }
