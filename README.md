@@ -1,7 +1,5 @@
 <h2 align="center"> Sistema de Gerenciamento de Pessoas </h2> <br/>
 
-![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
-
   - O projeto consiste no desenvolvimento de uma API REST para um sistema de gestão de dados pessoais e residenciais. A aplicação permite a interação com usuários através das funcionalidades de cadastro, atualização de informações e buscas específicas. 
    
   - ### Modelo Conceitual:
@@ -13,7 +11,7 @@
       [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/19986209-c20edb2e-1be0-4059-a4e2-36cca29e80c7?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D19986209-c20edb2e-1be0-4059-a4e2-36cca29e80c7%26entityType%3Dcollection%26workspaceId%3Df3ebd102-7eba-4911-8348-205a6bbb21c6)
 
   - ### Endpoints RESTs API:
-    | Rest  | Request         | Função |
+    | Rest  | Request         | Funcionalidade |
     |-------|-----------------| ------- |
     | GET   | Listar Pessoas  | Retorna a lista completa de pessoas cadastradas |
     | GET   | Buscar Pessoa por ID | Retorna dados de uma pessoa específica com base no seu ID |
