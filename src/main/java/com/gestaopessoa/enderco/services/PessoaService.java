@@ -32,7 +32,6 @@ public class PessoaService {
     @Transactional(readOnly = true)
     public Pessoa buscarPessoaId(Long id) {
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
-        //PessoaDTO pessoaDTO = new PessoaDTO(pessoa);
         return pessoa.orElseThrow(() -> new ProductNotFoundException());
     }
 
