@@ -8,7 +8,7 @@
       ![image](https://github.com/marcosrebelo97/gestao-pessoas/assets/37541973/a8ba640d-9550-46a6-94b6-8ebd6e17b958)
  
   - ### Postman Collection:
-    ##### Todas as requisições estão disponíveis para testes, feddbacks e afins, clique no botão abaixo.
+    ##### Todas as requisições estão disponíveis para testes, feedbacks e afins, clique no botão abaixo.
       [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/19986209-c20edb2e-1be0-4059-a4e2-36cca29e80c7?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D19986209-c20edb2e-1be0-4059-a4e2-36cca29e80c7%26entityType%3Dcollection%26workspaceId%3Df3ebd102-7eba-4911-8348-205a6bbb21c6)
 
   - ### Endpoints RESTs API:
