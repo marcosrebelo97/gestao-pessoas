@@ -37,7 +37,7 @@
     #### Todas as requisições estão disponíveis para testes, feedbacks e afins. Clique no botão abaixo para abrir no Postman.
       [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/19986209-c20edb2e-1be0-4059-a4e2-36cca29e80c7?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D19986209-c20edb2e-1be0-4059-a4e2-36cca29e80c7%26entityType%3Dcollection%26workspaceId%3Df3ebd102-7eba-4911-8348-205a6bbb21c6)
 
-     - ### Instruções para Executar
+- ### Instruções para Executar
     - Pré-Requisito:
       - Java (JDK 17) </br>
       
