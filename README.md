@@ -66,6 +66,21 @@
   - PostgreSQL
   - ORM
 
+## Colaborador 
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/37541973?s=400&u=9ed58a58d32f6314db5f27fc52e7086130cd4e12&v=4" width="100px;" alt="Marcos Guerreiro Rebelo Profile Picture"/><br>
+        <sub>
+          <b>Marcos Guerreiro Rebelo</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 ___
 
   - ### Contribuição:
